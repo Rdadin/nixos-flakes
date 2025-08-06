@@ -22,6 +22,10 @@
     extraGroups = [ "networkmanager" "wheel" ];
     initialPassword = "";  # Use 'passwd' later
   };
+  programs.hyprland = {
+    enable = true;
+    xwayland = true;
+  };
 
   environment.systemPackages = with pkgs; [ 
     vim 
@@ -35,6 +39,13 @@
     killall 
     pciutils 
     usbutils 
+    waybar           # Status bar for Hyprland
+    rofi-wayland     # App launcher (or wofi if you prefer)
+    hyprpaper        # Wallpaper daemon
+    kitty            # Terminal (or alacritty/wezterm)
+    brightnessctl    # Brightness control
+    pavucontrol      # Audio control GUI
+    wl-clipboard     # Wayland clipboard utilities
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
