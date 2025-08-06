@@ -48,6 +48,8 @@
     bind = SUPER, D, exec, rofi -show drun
     bind = SUPER, Q, killactive
     bind = SUPER, F, togglefloating
+    bind = SUPER_SHIFT, Q, exec, pkill Hyprland
+
 
     # Gaps and Borders
     general {
