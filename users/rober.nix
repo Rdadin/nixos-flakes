@@ -59,6 +59,6 @@
     }
 
     # Floating Rules (for things like pavucontrol)
-    windowrule = float, ^(pavucontrol)$
+    windowrulev2 = float,class:^(pavucontrol)$
   '';
 }
