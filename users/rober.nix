@@ -43,6 +43,17 @@
       };
     };
   };
+
+  programs.neovim = {
+    enable = true;
+    viAlias = true;
+    vimAlias = true;
+  };
+
+  xdg.configFile."nvim".source = builtins.fetchGit {
+    url = "https://github.com/LazyVim/starter";
+    rev = "your-commit-hash-here"; # Optional for reproducibility
+  };
  
   programs.git = {
     enable = true;
