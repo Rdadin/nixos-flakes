@@ -21,11 +21,23 @@
     description = "Roberto Dadin";
     extraGroups = [ "networkmanager" "wheel" ];
     initialPassword = "";  # Use 'passwd' later
+    shell = pkgs.fish;
   };
+
+  programs.fish.enable = true;
+
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
   };
+
+  fonts.packages = with pkgs; [
+  pkgs.nerd-fonts.fira-code
+  pkgs.nerd-fonts.jetbrains-mono
+  pkgs.nerd-fonts.hack
+  ];
+
+
 
   environment.systemPackages = with pkgs; [ 
     vim 
@@ -33,6 +45,7 @@
     git 
     curl 
     htop 
+    xclip
     tmux 
     neovim 
     unzip 
@@ -46,10 +59,8 @@
     brightnessctl    # Brightness control
     pavucontrol      # Audio control GUI
     wl-clipboard     # Wayland clipboard utilities
-    gcc
   ];
 
-  services.blueman.enable = true;
   hardware.bluetooth.enable = true;
 
   hardware.bluetooth.powerOnBoot = true;
