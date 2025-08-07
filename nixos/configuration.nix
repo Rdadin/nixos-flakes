@@ -59,6 +59,9 @@
     brightnessctl    # Brightness control
     pavucontrol      # Audio control GUI
     wl-clipboard     # Wayland clipboard utilities
+    bat
+    ipcalc
+    tealdeer
   ];
 
   hardware.bluetooth.enable = true;

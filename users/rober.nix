@@ -50,7 +50,13 @@
     userEmail = "r.dadin94@gmail.com";
   };
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    shellAliases = {
+      nrs = "sudo nixos-rebuild switch --flake .#nixos";
+      lg = "lazygit";
+    };
+  };
 
   programs.starship = {
     enable = true;
