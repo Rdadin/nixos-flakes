@@ -46,7 +46,24 @@
     brightnessctl    # Brightness control
     pavucontrol      # Audio control GUI
     wl-clipboard     # Wayland clipboard utilities
+    gcc
   ];
+
+  services.blueman.enable = true;
+  hardware.bluetooth.enable = true;
+
+  hardware.bluetooth.powerOnBoot = true;
+
+  sound.enable = true;
+
+  services.pipewire = {
+    enable = true;
+    audio.enable = true;
+    pulse.enable = true;
+    alsa.enable = true;
+  }
+
+
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
