@@ -58,6 +58,7 @@
     kitty            # Terminal (or alacritty/wezterm)
     brightnessctl    # Brightness control
     pavucontrol      # Audio control GUI
+    gcc
     wl-clipboard     # Wayland clipboard utilities
     bat
     ipcalc
