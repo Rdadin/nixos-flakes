@@ -54,16 +54,14 @@
 
   hardware.bluetooth.powerOnBoot = true;
 
-  sound.enable = true;
-
   services.pipewire = {
     enable = true;
-    audio.enable = true;
     pulse.enable = true;
     alsa.enable = true;
-  }
+    jack.enable = true;
+  };
 
-
+  hardware.pulseaudio.enable = false;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
