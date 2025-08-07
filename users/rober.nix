@@ -24,7 +24,7 @@
         foreground = "#c0caf5"; 
         };
       window = {
-        opacity = 0.9;
+        opacity = 0.95;
       };
       font = {
         normal = {
