@@ -63,6 +63,7 @@
     bat
     ipcalc
     tealdeer
+    plasma5Packages.kdeconnect-kde
   ];
 
   hardware.bluetooth.enable = true;
