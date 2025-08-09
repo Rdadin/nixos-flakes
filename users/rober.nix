@@ -1,6 +1,13 @@
 { config, pkgs, lib, ... }:
 {
+  home.homeDirectory = "/home/rober";
   home.stateVersion = "25.05";
+
+  # compose features here
+  imports = [
+    ./rober/secrets.nix
+    ./rober/vpn-openvpn.nix
+  ];
 
   home.packages = with pkgs; [
     tree
