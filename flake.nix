@@ -6,6 +6,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
+
+    # JaKooLit dotfiles (pin to a tag/commit you like)
+    hyprdots.url = "github:JaKooLit/Hyprland-Dots?ref=v2.3.16";
   };
 
   outputs = { self, nixpkgs, home-manager, sops-nix, ... }: let
@@ -23,6 +26,8 @@
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [ sops-nix.homeManagerModules.sops ];
             home-manager.users.rober = import ./users/rober/home.nix;
+
+            home-manager.extraSpecialArgs = { inherit hyprdots; };
           }
         ];
       };

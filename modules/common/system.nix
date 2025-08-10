@@ -9,6 +9,7 @@
   nixpkgs.config.allowUnfree = true;
 
   # QoL
+  services.envfs.enable = true;
   services.fstrim.enable = true;
   zramSwap.enable = true;
   security.polkit.enable = true;
