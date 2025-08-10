@@ -30,7 +30,7 @@ in
         extraPortals = with pkgs; [
           xdg-desktop-portal-gtk
           xdg-desktop-portal-hyprland
-          xdg-desktop-portal-kde
+          kdePackages.xdg-desktop-portal-kde
         ];
         configPackages = with pkgs; [ xdg-desktop-portal-gtk ];
       };
@@ -49,31 +49,29 @@ in
         wlr-randr cliphist jq
       ];
 
+      # -- replace the whole definitions with these --
+
       systemd.user.services.polkit-gnome-authentication-agent-1 = {
-        Unit = {
-          Description = "Polkit GNOME Authentication Agent";
-          After = [ "graphical-session.target" "hyprland-session.target" ];
-          PartOf = [ "graphical-session.target" ];
-        };
+        Unit = { Description = "Polkit GNOME Authentication Agent"; };
         Service = {
           ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
           Restart = "on-failure";
         };
-        Install.WantedBy = [ "graphical-session.target" ];
+        wantedBy = [ "graphical-session.target" ];
+        after    = [ "graphical-session.target" "hyprland-session.target" ];
+        partOf   = [ "graphical-session.target" ];
       };
 
       systemd.user.services.nm-applet = {
-        Unit = {
-          Description = "NetworkManager Applet";
-          After = [ "graphical-session.target" "hyprland-session.target" ];
-          PartOf = [ "graphical-session.target" ];
-        };
+        Unit = { Description = "NetworkManager Applet"; };
         Service = {
           ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";
           Restart = "on-failure";
           Environment = "XDG_CURRENT_DESKTOP=Hyprland";
         };
-        Install.WantedBy = [ "graphical-session.target" ];
+        wantedBy = [ "graphical-session.target" ];
+        after    = [ "graphical-session.target" "hyprland-session.target" ];
+        partOf   = [ "graphical-session.target" ];
       };
 
       # Tell HM the toggle is on
