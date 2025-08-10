@@ -26,6 +26,8 @@
   # Host-specific bits & toggles
   networking.hostName = "nixos";
 
+  common.shells.enable = true;
+
   desktop.sddm.enable = true;
   desktop.plasma6.enable = true;
   desktop.hyprland.enable = true;
