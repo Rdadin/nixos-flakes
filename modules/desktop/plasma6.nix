@@ -6,11 +6,11 @@ with lib; {
     services.desktopManager.plasma6.enable = true;
     xdg.portal = {
       enable = true;
-      extraPortals = with pkgs; [ xdg-desktop-portal-kde ];
+      extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
     };
     environment.systemPackages = with pkgs; [
-      kdePackages.plasma-nm
-      plasma5Packages.kdeconnect-kde
+      pkgs.kdePackages.plasma-nm
+      pkgs.kdePackages.kdeconnect-kde
       pavucontrol
     ];
   };

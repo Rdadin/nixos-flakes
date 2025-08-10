@@ -5,6 +5,7 @@
 
     # Core system
     ../../modules/common/base.nix
+    ../../modules/common/boot-efi.nix
     ../../modules/common/shells.nix
 
     # Networking
