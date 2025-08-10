@@ -3,7 +3,6 @@
   wayland.windowManager.hyprland = {
     enable = true;
     package = pkgs.hyprland;
-    # no extraConfig here — JaKooLit’s files will provide the full config
     extraConfig = ''
       source = ~/.config/hypr/hyprland.conf
     '';

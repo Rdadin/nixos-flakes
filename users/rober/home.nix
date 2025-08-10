@@ -19,7 +19,6 @@
     ./modules/vcs/git.nix
 
     ./modules/desktop/hyprland/default.nix
-    ./modules/desktop/hyprland/jakoolit.nix
  
     ./modules/vpn/openvpn.nix
   ];

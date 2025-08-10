@@ -20,22 +20,6 @@
         "type": "github"
       }
     },
-    "hyprdots": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1754400203,
-        "narHash": "sha256-mmf8ridk70doMvcPUsefHDsEU3XykpMHwdf1Oqz4rQ0=",
-        "owner": "JaKooLit",
-        "repo": "Hyprland-Dots",
-        "rev": "c840c9f234b26a22512b8ebb4987dc7687f1c142",
-        "type": "github"
-      },
-      "original": {
-        "owner": "JaKooLit",
-        "repo": "Hyprland-Dots",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1754725699,
@@ -71,7 +55,6 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "hyprdots": "hyprdots",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix"
       }
