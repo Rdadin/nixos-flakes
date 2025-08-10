@@ -6,7 +6,7 @@
 
   imports = [
     ./secrets.nix
-    ../../modules/networking/openvpn.nix
+    ./modules/vpn/openvpn.nix
   ];
 
   home.packages = with pkgs; [
