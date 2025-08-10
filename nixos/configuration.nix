@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
-  imports = [ ./hardware-configuration.nix ];
+  imports = [
+    ./hardware-configuration.nix 
+    ../modules/networking/vpn-tun-access.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -11,6 +14,11 @@
     plugins = with pkgs; [
       networkmanager-openvpn
     ];
+  };
+  my.vpn.tunAccess = {
+    enable = true;
+    interfaces = [ "tun0" ];   # add more if you use multiple tunnels
+    rpFilterMode = "loose";    # "loose" | "strict" | "no"
   };
 
   time.timeZone = "America/Argentina/Buenos_Aires";
