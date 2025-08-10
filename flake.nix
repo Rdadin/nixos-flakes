@@ -8,21 +8,25 @@
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }: {
+  outputs = { self, nixpkgs, home-manager, sops-nix, ... }: let
+    system = "x86_64-linux";
+    lib = nixpkgs.lib;
+  in {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+      nixos = lib.nixosSystem {
+        inherit system;
         modules = [
-          ./nixos/configuration.nix
+          ./hosts/nixos/default.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [ sops-nix.homeManagerModules.sops ];
-            home-manager.users.rober = import ./users/rober.nix;
+            home-manager.users.rober = import ./users/rober/home.nix;
           }
         ];
       };
     };
   };
 }
+

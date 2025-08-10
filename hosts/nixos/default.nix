@@ -1,8 +1,24 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./hardware-configuration.nix 
-    ../modules/networking/vpn-tun-access.nix
+    ./hardware-configuration.nix
+
+    # Common base (commented until files exist)
+    # ../../modules/common/base.nix
+    # ../../modules/common/shells.nix
+
+    # Desktop stack (commented until files exist)
+    # ../../modules/desktop/sddm.nix
+    # ../../modules/desktop/plasma6.nix
+    # ../../modules/desktop/hyprland.nix
+
+    # Programs / services (commented until files exist)
+    # ../../modules/programs/dev-tools.nix
+    # ../../modules/services/printing.nix
+    # ../../modules/services/bluetooth.nix
+
+    # Your existing module that you actually use below 👇
+    ../../modules/networking/vpn-tun-access.nix
   ];
 
   boot.loader.systemd-boot.enable = true;
