@@ -3,6 +3,7 @@
   home.username = "rober";
   home.homeDirectory = "/home/rober";
   home.stateVersion = "25.05";
+  home-manager.backupFileExtension = "hm-bak";
 
   imports = [
     ./secrets.nix

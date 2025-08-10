@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1754441365,
-        "narHash": "sha256-yYYxwqUydEX/Ta+0HNLRaxW8GQLDRXGdC6xE84ZjRtI=",
+        "lastModified": 1754756528,
+        "narHash": "sha256-W1jYKMetZSOHP5m2Z5Wokdj/ct17swPHs+MiY2WT1HQ=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "f0d81a415d7a8fbf57b518aec5cf7dca20576389",
+        "rev": "3ec1cd9a0703fbd55d865b7fd2b07d08374f0355",
         "type": "github"
       },
       "original": {
@@ -20,13 +20,29 @@
         "type": "github"
       }
     },
+    "hyprdots": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1754400203,
+        "narHash": "sha256-mmf8ridk70doMvcPUsefHDsEU3XykpMHwdf1Oqz4rQ0=",
+        "owner": "JaKooLit",
+        "repo": "Hyprland-Dots",
+        "rev": "c840c9f234b26a22512b8ebb4987dc7687f1c142",
+        "type": "github"
+      },
+      "original": {
+        "owner": "JaKooLit",
+        "repo": "Hyprland-Dots",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1754214453,
-        "narHash": "sha256-Q/I2xJn/j1wpkGhWkQnm20nShYnG7TI99foDBpXm1SY=",
+        "lastModified": 1754725699,
+        "narHash": "sha256-iAcj9T/Y+3DBy2J0N+yF9XQQQ8IEb5swLFzs23CdP88=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5b09dc45f24cf32316283e62aec81ffee3c3e376",
+        "rev": "85dbfc7aaf52ecb755f87e577ddbe6dbbdbc1054",
         "type": "github"
       },
       "original": {
@@ -55,6 +71,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "hyprdots": "hyprdots",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix"
       }
