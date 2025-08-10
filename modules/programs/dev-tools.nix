@@ -1,11 +1,9 @@
-{ config, lib, pkgs, ... }:
-with lib; {
-  options.programs.devTools.enable = mkEnableOption "developer tools";
-
-  config = mkIf config.programs.devTools.enable {
-    environment.systemPackages = with pkgs; [
-      gcc
-      # add more dev toolchains here as you like
-    ];
-  };
+{ pkgs, ... }:
+{
+  environment.systemPackages = with pkgs; [
+    gcc
+    # add other toolchains here when you need them:
+    # gnumake cmake pkg-config clang go nodejs python3 rustup jq yq
+  ];
 }
+
