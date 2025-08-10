@@ -18,7 +18,7 @@
 
     ./modules/vcs/git.nix
 
-    ./modules/desktop/hyprland
+#    ./modules/desktop/hyprland
  
     ./modules/vpn/openvpn.nix
   ];

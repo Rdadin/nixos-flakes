@@ -49,11 +49,11 @@ in
         wlr-randr cliphist jq
       ];
 
-      # -- replace the whole definitions with these --
+      # modules/desktop/hyprland.nix  (replace both service blocks)
 
       systemd.user.services.polkit-gnome-authentication-agent-1 = {
-        Unit = { Description = "Polkit GNOME Authentication Agent"; };
-        Service = {
+        description = "Polkit GNOME Authentication Agent";
+        serviceConfig = {
           ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
           Restart = "on-failure";
         };
@@ -63,8 +63,8 @@ in
       };
 
       systemd.user.services.nm-applet = {
-        Unit = { Description = "NetworkManager Applet"; };
-        Service = {
+        description = "NetworkManager Applet";
+        serviceConfig = {
           ExecStart = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator";
           Restart = "on-failure";
           Environment = "XDG_CURRENT_DESKTOP=Hyprland";

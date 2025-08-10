@@ -7,4 +7,7 @@
     ../modules/services
     ../modules/desktop       # plasma6.nix + hyprland.nix + sddm.nix together
   ];
+
+  system.stateVersion = "25.11";
+
 }
