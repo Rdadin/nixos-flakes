@@ -26,9 +26,12 @@ in
     auth SHA256
     remote-cert-tls server
 
-    auth-user-pass ${vpnSecrets}/espacio/auth.txt
-    pkcs12        ${vpnSecrets}/espacio/rdadin.p12
+    ca            ${vpnSecrets}/espacio/ca.crt
+    cert            ${vpnSecrets}/espacio/client.crt
+    key            ${vpnSecrets}/espacio/client.key
     tls-auth      ${vpnSecrets}/espacio/rdadin.key 1
+    auth-user-pass  ${vpnSecrets}/espacio/auth.txt
+
     verify-x509-name "OpenVPN" name
     explicit-exit-notify
     verb 3
@@ -50,9 +53,12 @@ in
     auth SHA256
     remote-cert-tls server
 
-    auth-user-pass ${vpnSecrets}/arsat/auth.txt
-    pkcs12        ${vpnSecrets}/arsat/rdadin_ar.p12
+    ca            ${vpnSecrets}/arsat/ca.crt
+    cert            ${vpnSecrets}/arsat/client.crt
+    key            ${vpnSecrets}/arsat/client.key
     tls-auth      ${vpnSecrets}/arsat/rdadin_ar.key 1
+    auth-user-pass  ${vpnSecrets}/arsat/auth.txt
+ 
     verify-x509-name "openvpn-sv" name
     explicit-exit-notify
     verb 3

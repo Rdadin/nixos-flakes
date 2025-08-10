@@ -6,7 +6,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixos";
-  networking.networkmanager.enable = true;
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
 
   time.timeZone = "America/Argentina/Buenos_Aires";
 
@@ -64,7 +69,8 @@
     ipcalc
     tealdeer
     plasma5Packages.kdeconnect-kde
-  ];
+    kdePackages.plasma-nm        # ✅ Qt6 version (replaces plasma-nm)
+    ];
 
   hardware.bluetooth.enable = true;
 
