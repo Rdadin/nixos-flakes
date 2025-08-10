@@ -7,14 +7,11 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
 
-    # JaKooLit Hyprland dotfiles (non-flake repo)
-    hyprdots = {
-      url = "github:JaKooLit/Hyprland-Dots";
-      flake = false;
-    };
+    # JaKooLit dotfiles (pin to a tag/commit you like)
+    hyprdots.url = "github:JaKooLit/Hyprland-Dots?ref=v2.3.16";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }: let
+  outputs = { self, nixpkgs, home-manager, sops-nix, hyprdots, ... }: let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
   in {
