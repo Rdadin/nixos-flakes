@@ -4,13 +4,11 @@
   xdg.portal = {
     enable = true;
 
-    # wlroots backend for Wayland screen sharing (Hyprland)
-    wlr.enable = true;
-
     # Backends to have available. KDE will prefer its own; others can fall back to GTK.
     extraPortals = [
       pkgs.kdePackages.xdg-desktop-portal-kde
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-hyprland
     ];
   };
 }
