@@ -24,6 +24,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = null;
             home-manager.sharedModules = [ sops-nix.homeManagerModules.sops ];
             home-manager.users.rober = import ./users/rober/home.nix;
           }
