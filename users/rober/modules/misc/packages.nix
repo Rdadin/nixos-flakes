@@ -12,5 +12,6 @@
     steam
     spotify
     lazygit
+    firefox
   ];
 }

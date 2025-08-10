@@ -6,5 +6,7 @@
     ../laptop-common.nix
     ./hardware-configuration.nix
   ];
+
+  desktop.hyprland.enable = true;
 }
 
