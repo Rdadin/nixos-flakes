@@ -27,6 +27,7 @@
   networking.hostName = "nixos";
 
   common.shells.enable = true;
+  common.base.enable = true;
 
   desktop.sddm.enable = true;
   desktop.plasma6.enable = true;
