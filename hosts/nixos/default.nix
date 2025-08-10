@@ -3,114 +3,43 @@
   imports = [
     ./hardware-configuration.nix
 
-    # Common base (commented until files exist)
-    # ../../modules/common/base.nix
-    # ../../modules/common/shells.nix
+    # Core system
+    ../../modules/common/base.nix
+    ../../modules/common/shells.nix
 
-    # Desktop stack (commented until files exist)
-    # ../../modules/desktop/sddm.nix
-    # ../../modules/desktop/plasma6.nix
-    # ../../modules/desktop/hyprland.nix
-
-    # Programs / services (commented until files exist)
-    # ../../modules/programs/dev-tools.nix
-    # ../../modules/services/printing.nix
-    # ../../modules/services/bluetooth.nix
-
-    # Your existing module that you actually use below 👇
+    # Networking
+    ../../modules/networking/core.nix
     ../../modules/networking/vpn-tun-access.nix
+
+    # Desktop
+    ../../modules/desktop/sddm.nix
+    ../../modules/desktop/plasma6.nix
+    ../../modules/desktop/hyprland.nix
+
+    # Services & programs
+    ../../modules/services/audio-pipewire.nix
+    ../../modules/services/bluetooth.nix
+    ../../modules/programs/dev-tools.nix
   ];
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
+  # Host-specific bits & toggles
   networking.hostName = "nixos";
-  networking.networkmanager = {
-    enable = true;
-    plugins = with pkgs; [
-      networkmanager-openvpn
-    ];
-  };
+
+  desktop.sddm.enable = true;
+  desktop.plasma6.enable = true;
+  desktop.hyprland.enable = true;
+
+  networking.core.enable = true;
   my.vpn.tunAccess = {
     enable = true;
-    interfaces = [ "tun0" ];   # add more if you use multiple tunnels
-    rpFilterMode = "loose";    # "loose" | "strict" | "no"
+    interfaces = [ "tun0" ];
+    rpFilterMode = "loose";
   };
 
-  time.timeZone = "America/Argentina/Buenos_Aires";
-
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  services.xserver.enable = true;
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
-
-  users.users.rober = {
-    isNormalUser = true;
-    description = "Roberto Dadin";
-    extraGroups = [ "networkmanager" "wheel" ];
-    initialPassword = "";  # Use 'passwd' later
-    shell = pkgs.fish;
-  };
-
-  programs.fish.enable = true;
-
-  programs.hyprland = {
-    enable = true;
-    xwayland.enable = true;
-  };
-
-  fonts.packages = with pkgs; [
-  pkgs.nerd-fonts.fira-code
-  pkgs.nerd-fonts.jetbrains-mono
-  pkgs.nerd-fonts.hack
-  ];
-
-
-
-  environment.systemPackages = with pkgs; [ 
-    vim 
-    wget 
-    git 
-    curl 
-    htop 
-    xclip
-    tmux 
-    neovim 
-    unzip 
-    killall 
-    pciutils 
-    usbutils 
-    waybar           # Status bar for Hyprland
-    rofi-wayland     # App launcher (or wofi if you prefer)
-    hyprpaper        # Wallpaper daemon
-    kitty            # Terminal (or alacritty/wezterm)
-    brightnessctl    # Brightness control
-    pavucontrol      # Audio control GUI
-    gcc
-    wl-clipboard     # Wayland clipboard utilities
-    bat
-    ipcalc
-    tealdeer
-    plasma5Packages.kdeconnect-kde
-    kdePackages.plasma-nm        # ✅ Qt6 version (replaces plasma-nm)
-    ];
-
-  hardware.bluetooth.enable = true;
-
-  hardware.bluetooth.powerOnBoot = true;
-
-  services.pipewire = {
-    enable = true;
-    pulse.enable = true;
-    alsa.enable = true;
-    jack.enable = true;
-  };
-
-  services.pulseaudio.enable = false;
-
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
+  services.audio.pipewire.enable = true;
+  services.bluetooth.enable = true;
+  programs.devTools.enable = true;
 
   system.stateVersion = "25.05";
 }
+
