@@ -30,6 +30,7 @@
             home-manager.sharedModules = [ sops-nix.homeManagerModules.sops ];
             home-manager.users.rober = import ./users/rober/home.nix;
 
+            home-manager.backupFileExtension = "hm-bak";
             home-manager.extraSpecialArgs = { inherit hyprdots; };
           }
         ];
