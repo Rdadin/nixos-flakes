@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 with lib; {
   options.common.shells.enable = mkEnableOption "shells and prompt";
 

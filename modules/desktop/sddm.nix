@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 with lib; {
   options.desktop.sddm.enable = mkEnableOption "SDDM display manager (Wayland)";
 

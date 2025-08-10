@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 with lib; {
   options.desktop.plasma6.enable = mkEnableOption "KDE Plasma 6";
 

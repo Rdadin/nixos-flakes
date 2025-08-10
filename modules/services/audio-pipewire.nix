@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ config, lib, ... }:
 with lib; {
   options.services.audio.pipewire.enable = mkEnableOption "PipeWire audio stack";
 

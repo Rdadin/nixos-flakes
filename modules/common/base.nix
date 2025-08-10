@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 with lib; {
   options.common.base.enable = mkEnableOption "core system baseline";
 

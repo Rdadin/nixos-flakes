@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 with lib; {
   options.networking.core.enable = mkEnableOption "basic networking stack";
 

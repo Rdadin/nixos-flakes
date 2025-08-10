@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 with lib; {
   options.programs.devTools.enable = mkEnableOption "developer tools";
 
