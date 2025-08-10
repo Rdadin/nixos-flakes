@@ -9,7 +9,6 @@ with lib; {
     users.groups.rober = {};
 
     users.users.rober = {
-      # Make sure only ONE of these is true
       isNormalUser = lib.mkForce true;
       isSystemUser = lib.mkForce false;
 
