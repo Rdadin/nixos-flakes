@@ -6,35 +6,34 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     sops-nix.url = "github:Mic92/sops-nix";
-
-    # JaKooLit Hyprland dotfiles (non-flake repo)
-    hyprdots = {
-      url = "github:JaKooLit/Hyprland-Dots";
-      flake = false;
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, hyprdots, ... }: let
+  outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
+  let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
-  in {
-    nixosConfigurations = {
-      nixos = lib.nixosSystem {
+
+    mkHost = hostPath:
+      lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit self nixpkgs home-manager sops-nix; }; # handy if modules need inputs
         modules = [
-          ./hosts/nixos/default.nix
+          (import hostPath)
+          sops-nix.nixosModules.sops
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.sharedModules = [ sops-nix.homeManagerModules.sops ];
             home-manager.users.rober = import ./users/rober/home.nix;
-
-            home-manager.backupFileExtension = "hm-bak";
-            home-manager.extraSpecialArgs = { inherit hyprdots; };
           }
         ];
       };
+  in {
+    nixosConfigurations = {
+      nixos-desktop       = mkHost ./hosts/desktop/default.nix;
+      nixos-dell   = mkHost ./hosts/laptop-dell/default.nix;
+      nixos-exo = mkHost ./hosts/laptop-exo/default.nix;
     };
   };
 }
