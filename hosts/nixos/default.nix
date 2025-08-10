@@ -44,5 +44,7 @@
   programs.devTools.enable = true;
 
   system.stateVersion = "25.05";
+
+  nixpkgs.config.allowUnfree = true;
 }
 
