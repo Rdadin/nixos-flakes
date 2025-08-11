@@ -9,6 +9,8 @@
     neofetch
     glow
     btop
+    terraform
+    ansible
 #    steam
     spotify
     lazygit
