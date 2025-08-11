@@ -9,11 +9,15 @@
     ../../modules/hardware/nvidia.nix  # see section 2
   ];
 
+  home-manager.users.rober.imports = [
+    ../../users/rober/modules/gaming
+  ];
+
   # Desktop-only toggles
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.graphics.enable = true;
+#  services.xserver.videoDrivers = [ "nvidia" ];
+#  hardware.graphics.enable = true;
 
   # Optional: performance/power tweaks for a tower
-  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
+#  powerManagement.cpuFreqGovernor = lib.mkDefault "performance";
 }
 

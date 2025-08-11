@@ -3,7 +3,7 @@
   programs.fish = {
     enable = true;
     shellAliases = {
-      nrs = "sudo nixos-rebuild switch --flake .#nixos";
+      nrs = "sudo nixos-rebuild switch --flake .#(hostname)";
       lg = "lazygit";
     };
   };

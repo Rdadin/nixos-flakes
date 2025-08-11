@@ -1,15 +1,14 @@
 { lib, pkgs, config, ... }:
 {
-  # GTX 1080 (Pascal) → proprietary driver
   services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
-    modesetting.enable = true;
-    open = false;                 # Pascal doesn’t use the open kernel module
-    nvidiaSettings = true;
-    powerManagement.enable = false;
+    modesetting.enable = true;   # required for GBM/Wayland
+    open = false;                # GTX 1080 (Pascal) -> use the proprietary kernel module
+    nvidiaSettings = true;       # optional: nvidia-settings tool
+    # Pick the regular stable driver for now
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  environment.systemPackages = with pkgs; [ nvidia-settings ];
 }
 

@@ -9,7 +9,7 @@
     neofetch
     glow
     btop
-    steam
+#    steam
     spotify
     lazygit
     firefox

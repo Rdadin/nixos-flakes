@@ -22,5 +22,10 @@
     vim wget git curl htop tmux neovim unzip killall pciutils usbutils
     wl-clipboard bat ipcalc tealdeer
   ];
+
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";     # Electron/Chromium apps prefer Wayland
+    MOZ_ENABLE_WAYLAND = "1"; # Firefox prefers Wayland
+  };
 }
 
