@@ -27,5 +27,11 @@
     NIXOS_OZONE_WL = "1";     # Electron/Chromium apps prefer Wayland
     MOZ_ENABLE_WAYLAND = "1"; # Firefox prefers Wayland
   };
+
+  # Disable USB autosuspend for all devices
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
+  '';
+
 }
 

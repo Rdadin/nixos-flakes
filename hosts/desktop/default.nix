@@ -7,6 +7,7 @@
     ../../modules/gaming    # if you want “gaming” only on desktop, you can make
     ./hardware-configuration.nix
     ../../modules/hardware/nvidia.nix  # see section 2
+    ../../modules/hardware/usb-receivers.nix
   ];
 
   home-manager.users.rober.imports = [
