@@ -19,7 +19,24 @@
 
   # System-wide CLI
   environment.systemPackages = with pkgs; [
-    vim wget git curl htop tmux neovim unzip killall pciutils usbutils wl-clipboard bat ipcalc tealdeer
+    vim
+    wget
+    git
+    curl
+    htop
+    tmux
+    neovim
+    unzip
+    killall
+    pciutils
+    usbutils
+    wl-clipboard
+    bat
+    ipcalc
+    tealdeer
+    ghostscript
+    tectonic
+    mermaid-cli
   ];
 
   environment.sessionVariables = {
