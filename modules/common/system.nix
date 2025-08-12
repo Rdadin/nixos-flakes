@@ -19,19 +19,12 @@
 
   # System-wide CLI
   environment.systemPackages = with pkgs; [
-    vim wget git curl htop tmux neovim unzip killall pciutils usbutils
-    wl-clipboard bat ipcalc tealdeer
+    vim wget git curl htop tmux neovim unzip killall pciutils usbutils wl-clipboard bat ipcalc tealdeer
   ];
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";     # Electron/Chromium apps prefer Wayland
     MOZ_ENABLE_WAYLAND = "1"; # Firefox prefers Wayland
   };
-
-  # Disable USB autosuspend for all devices
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{power/control}="on"
-  '';
-
 }
 
