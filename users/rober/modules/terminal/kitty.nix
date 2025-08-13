@@ -11,5 +11,6 @@
       "ctrl+shift+u" = "launch --stdin-source=@screen_scrollback kitty +kitten clipboard";
       "ctrl+shift+g" = "launch --stdin-source=@last_cmd_output --stdin-add-formatting --type=overlay less +G -R";
     };
+    themeFile = "tokyo_night_moon";
   };
 }  
