@@ -5,6 +5,15 @@
 #in
 {
   programs.hyprland.enable = true;
+
+  environment.systemPackages = with pkgs; [
+    waybar              # bar
+    rofi-wayland        # launcher
+    hyprpaper           # wallpaper daemon
+    brightnessctl       # brightness control
+    grim slurp          # screenshots
+    networkmanagerapplet # nm-applet if you want a tray
+  ];
   #options.desktop.hyprland.enable = lib.mkEnableOption "Hyprland desktop environment";
 #
   #config = lib.mkMerge [
