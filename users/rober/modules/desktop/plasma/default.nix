@@ -7,13 +7,26 @@
       lookAndFeel = "org.kde.breezedark.desktop";  # Breeze Dark global theme
       colorScheme = "BreezeDark";                  # matching color scheme
       iconTheme   = "breeze-dark";                 # optional: dark icon theme
+      wallpaperSlideShow = {
+        path = ../../../wallpapers;  # directory
+        interval = 60;                    # seconds
+      };
+      # nice-to-haves:
+      wallpaperFillMode = "preserveAspectFit";
+      wallpaperBackground.blur = true;
+      };
     };
 
     input = {
-      mouse = {
-        acceleration = "none";  # disables pointer acceleration
-        speed = -0.5;           # range: -1.0 (slow) to 1.0 (fast), 0 = default
-      };
+      mice = [
+        {
+          accelerationProfile = "none";
+          acceleration = -0.5;
+          name = "Logitech G703 LS";
+          productId = "4086";
+          vendorId = "046d";
+        }
+      ];
     };
   };
 }
