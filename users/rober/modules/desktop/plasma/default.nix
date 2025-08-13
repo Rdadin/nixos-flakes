@@ -12,9 +12,8 @@
         interval = 60;                    # seconds
       };
       # nice-to-haves:
-      wallpaperFillMode = "preserveAspectFit";
-      wallpaperBackground.blur = true;
-      };
+      wallpaperFillMode = "stretch";
+      wallpaperBackground.blur = false;
     };
 
     input = {
