@@ -5,10 +5,15 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    plasma-manager = {
+      url = "github:pjones/plasma-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = { self, nixpkgs, home-manager, sops-nix, ... }:
+  outputs = { self, nixpkgs, home-manager, sops-nix, plasma-manager, ... }:
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -25,7 +30,10 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = null;
-            home-manager.sharedModules = [ sops-nix.homeManagerModules.sops ];
+            home-manager.sharedModules = [
+              sops-nix.homeManagerModules.sops 
+              plasma-manager.homeManagerModules.plasma-manager
+            ];
             home-manager.users.rober = import ./users/rober/home.nix;
           }
         ];

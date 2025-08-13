@@ -20,6 +20,7 @@
     ./modules/vcs/git.nix
 
 #    ./modules/desktop/hyprland
+    ./modules/desktop/plasma
 
     ./modules/vpn/openvpn.nix
   ];
