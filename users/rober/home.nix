@@ -13,13 +13,13 @@
     ./modules/terminal/shell.nix
     ./modules/terminal/starship.nix
     ./modules/terminal/alacritty.nix
-#    ./modules/terminal/kitty.nix
+    ./modules/terminal/kitty.nix
 
     ./modules/editors/neovim.nix
 
     ./modules/vcs/git.nix
 
-#    ./modules/desktop/hyprland
+    ./modules/desktop/hyprland
     ./modules/desktop/plasma
 
     ./modules/vpn/openvpn.nix
